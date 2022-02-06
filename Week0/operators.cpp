@@ -1,3 +1,8 @@
+/**
+ * review of some of the C++ operators
+ * reference: https://en.cppreference.com/w/cpp/language/expressions
+ * 
+ */
 #include <iostream>
 using namespace std;
 
