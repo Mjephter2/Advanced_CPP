@@ -1,0 +1,44 @@
+class website: https://venus.cs.qc.cuny.edu/~waxman/780/
+
+- C++ History
+- Data types
+    - int
+    - double
+    - float
+    - char
+    - custom data types
+        - class
+        - struct
+
+* class VS struct *
+class   
+    - Members are private by default
+    - Memory allocation happens on the heap
+    - It is a reference type data type
+struct
+    - members are public by default
+    - Memory allocation happens on a stack
+    - It is a value type data type
+
+* Object Based Programming
+    1. Encapsulation
+        Bundling of data, along with methods that operate on the data
+            into a single unit.
+    2. Abstraction / Data Hiding
+        'Write to the interface and not to the implementation.'
+* Object Oriented Programming
+    3. Inheritance
+        Mechanism where you can to derive a class from another class for a hierarchy of classes that 
+        share a set of attributes and methods. You can use it to declare different kinds of exceptions,
+        add custom logic to existing frameworks, and even map your domain model to a database.
+    4. Polymorphism
+        Concept that you can access objects of different types through the same interface.
+        Each type can provide its own implementation of this interface.
+
+C++ provides the following for classes/struct:
+    1. Default constructor
+    2. Assignment
+    3. Copy constructor
+    4. Destructor
+    5. * Move Assignment *
+    6. * Move Copy *

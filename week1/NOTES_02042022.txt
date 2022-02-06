@@ -1,0 +1,36 @@
+* Pointers *
+
+Define 'int i = 0;'
+Then '&i' is the address of 'i'
+
+Now define 'int * ip = &i'
+The variable 'ip' is the address of variable 'i' in memory
+
+We can access the content of 'i' by derenferencing 'ip', i.e. '*ip'
+
+So there are 2 ways to access the content of 'i': 'i' itself and '*ip'
+
+// bad swap function
+// arguments are passed by values
+// changes made to them is bound to the scope of the function
+void swap(int i, int j)
+{
+    int temp = i;
+    i = j;
+    j = temp;
+}
+
+// good swap function
+void swap(int* ip, int* jp)
+{
+    int temp = *ip;
+    *ip = *jp;
+    *jp = temp;
+}
+
+* Pointers Arithmetic *
+Let p, q be two addresses in memory and
+let m, n be the number of bytes accupied by objects referenced by p, q respectively.
+p + i represents the address in memory that is m*i bytes right of p
+p - i represents the address in memory that is m*i bytes left of p
+q-p, p-q, p*q, p/q have no relevant meaning.
