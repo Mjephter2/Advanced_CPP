@@ -2,7 +2,7 @@ Pointers Review (Continued)
 Consider an array of 3 integers named a consisting of the values 10, 20, 30 in that order.
 In memory, this array is represented by three consecutive blocks of 4 bytes each.
 
-int a[4] = {10, 20, 30, 40};
+int a[3] = {10, 20, 30};
 cout << a << endl; // prints address of first element (Ex: 0x16bc233e8)
 cout << a + 1 << endl; // prints address of second element (Ex: 0x16bc233ec)
 cout << a + 2 << endl; // prints address of third element (Ex: 0x16bc233f0)
