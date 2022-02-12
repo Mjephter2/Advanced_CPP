@@ -1,0 +1,75 @@
+Pointers Review (Continued)
+Consider an array of 3 integers named a consisting of the values 10, 20, 30 in that order.
+In memory, this array is represented by three consecutive blocks of 4 bytes each.
+
+int a[4] = {10, 20, 30, 40};
+cout << a << endl; // prints address of first element (Ex: 0x16bc233e8)
+cout << a + 1 << endl; // prints address of second element (Ex: 0x16bc233ec)
+cout << a + 2 << endl; // prints address of third element (Ex: 0x16bc233f0)
+// Notice that consecutive addresses differ by 4!
+// Values at addresses can be extracted by derenferencing
+cout << *a << endl; // 10
+cout << *(a+1) << endl; // 20
+cout << *(a+2) << endl; // 30
+// In general *(a+i) = a[i]
+cout << (*a == a[0]) << endl; // 1 (i.e. true)
+cout << (*(a+1) == a[1]) << endl; // 1 (i.e. true)
+cout << (*(a+2) == a[2]) << endl; // 1 (i.e. true)
+// *(a + i) is equivalent to *(i + a)
+cout << sizeof(a) << endl; // 12
+
+If passing an array to a function (by value), you must also pass the size of the array
+Ex:
+int sum(int array[], int size)
+{
+    int total = 0;
+    for(int i = 0; i < size; i++)
+    {
+        total += a[i];
+    }
+    return total;
+}
+Why pass an additional parameter size to the sum function?
+Why not just compute the size of the array using sizeof(array)/size(int) ?
+Answer: sizeof(array) will always equal 8 since array is not a pointer.
+Recommendation: Experiment implementing a sum function in two ways, one that just takes an array
+as a parameter (in that case, calculate the size of the array) and one that takes an additional integer representing the number of 
+elements in the array.
+
+2-D Arrays are arrays where the elements are 1-D arrays themselves.
+Initialization with individual values
+    int B[3][2] = {10, 20, 30, 40, 50, 60}
+    // B represents 3 consecutive arrays [10, 20], [30, 40] and [50, 60]
+Initialization with a single value
+    int B[3][2]{0}
+    // B represents 3 consecutive arrays each with the same values [0, 0]
+B represents the first element/array.
+B + 1 represents the second element/array
+B + 2 represents the third element/array
+Just like 1-D arrays, we can dereference to extract values.
+In general B[i][j] = *(*(B + i) + j)
+The very first integer in B can be accessed using B[0][0] or *(*(B + 0) + 0) or simply **B
+
+Consider how memory gets allocated.
+The following code will not work
+    int n;
+    cin >> n;
+    int a[n];
+The following code will work
+    int n;
+    cin >> n;
+    int* a = new int[n];
+
+Functions and Pointers
+When a function is defined, it is also assigned an address.
+
+How to pass a function as an argument to a function?
+We use a typedef!
+typedef double (*Func) (double);
+If the function we want to pass matches the defined typedef, then we can pass it to a function that expects it.
+Ex: 
+    double square(double x) { return x * x}
+For example, we can define a function integrate that takes a function of type Func and 2 doubles like so:
+    double integerate(Func f, double a, double b){//return some double value}
+
+Read and Understand strings.h file
